@@ -4,4 +4,24 @@ var url = "https://sheets.googleapis.com/v4/spreadsheets/1YgppTK_-AKbUv2rn_QFa6g
 
 fetch(url)
   .then(function(response) { return response.json() })
-  .then(function(json) { console.log(json.values) });
+  .then(renderResponse);
+
+function renderResponse(json) {
+  console.log(json.values);
+  var data = []
+
+  //Massage data
+  var trs = json.values.map(function(row) {
+    var data = {"display": row[0], "email": row[1], "state": row[2]};
+
+    return '\
+<tr>\
+  <td>' + data.display + '</td>\
+  <td><a href="mailto:' + data.email + '">' + data.email + '</a></td>\
+</tr>\
+';
+  })
+
+  document.getElementById("tablebody").innerHTML = (trs.join("\n"));
+
+}
