@@ -1,6 +1,9 @@
 // TODO: Polyfill fetch
 
-var url = "https://sheets.googleapis.com/v4/spreadsheets/1YgppTK_-AKbUv2rn_QFa6gqvF0qG3OFB15OeMULM4Tw/values/2%20Col?key=AIzaSyCem77u6PE4zsEvs87PJIe7Wj2xERXP6Mk"
+var url = "https://sheets.googleapis.com/v4/spreadsheets/1YgppTK_-AKbUv2rn_QFa6gqvF0qG3OFB15OeMULM4Tw/values/2%20Col?key=AIzaSyC1DObwIS_U1F3YA_ePQFd2Bn50cLmXb-U"
+// var url = "https://sheets.googleapis.com/v4/spreadsheets/1tiTL3IHbEDIjKYH-C1_j-C7t_E0OJSUJAiDWffXvmWw/values/MAJOR%20TV?key=AIzaSyC1DObwIS_U1F3YA_ePQFd2Bn50cLmXb-U"
+var contactEmails = "";
+var emailLink = document.getElementById('email');
 
 fetch(url)
   .then(parseResponse)
@@ -20,6 +23,7 @@ var data = {}
 data[headers[0].toLowerCase()] = row[0]
 data[headers[1].toLowerCase()] = row[1]
 data[headers[2].toLowerCase()] = row[2]
+contactEmails += row[1]+','
 
     return '\
 <tr>\
@@ -28,7 +32,9 @@ data[headers[2].toLowerCase()] = row[2]
 </tr>\
 ';
   })
-
   document.getElementById("tablebody").innerHTML = (trs.join("\n"));
+}
 
+emailLink.onclick = function() {
+  this.href = "mailto:"+contactEmails
 }
