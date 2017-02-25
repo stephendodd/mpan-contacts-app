@@ -3,6 +3,8 @@
 <head>
     <title>Example Domain</title>
 
+    <script src="index.js" type="application/javascript"></script>
+
     <meta charset="utf-8" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,14 +12,31 @@
 
     </style>
 </head>
-<script>
-
-
-  console.log("ham");
-</script>
 <body>
 <div>
   <p>Hello world</p>
+  <a href="mailto:bob@example.com,fred@example.com">email everyone!</a>
+
+  <table border="1">
+    <thead>
+      <th><input type="checkbox"/></th>
+      <th>Name</th>
+      <th>Email</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="checkbox"/></td>
+        <td>Fred, Channel 10</td>
+        <td><a href="mailto:fred@example.com">fred@example.com</a></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox"/></td>
+        <td>Berlinda, The Age</td>
+        <td><a href="mailto:Berlinda@example.com">fred@example.com</a></td>
+      </tr>
+    </tbody>
+  </table>
+
 </div>
 </body>
 </html>
