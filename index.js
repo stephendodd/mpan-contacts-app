@@ -28,7 +28,6 @@ data[headers[2].toLowerCase()] = row[2]
 
 contactEmails += row[1]+','
 
-
     return '\
 <tr>\
   <td>' + data.contact + '</td>\
@@ -36,6 +35,7 @@ contactEmails += row[1]+','
 </tr>\
 ';
   })
+
   document.getElementById("tablebody").innerHTML = (trs.join("\n"));
 }
 
